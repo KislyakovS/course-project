@@ -1,10 +1,11 @@
 import { createRoot } from "react-dom/client";
-import { App } from "./App";
-import { ThemeProvider } from "./theme";
+import { App } from "@/app";
+import { ThemeProvider } from "@/shared/providers/theme";
+import { BrowserRouter } from "react-router-dom";
 
-import './styles/normalize.css';
-import './styles/properties.css';
-import './styles/global.css';
+import '@/app/styles/normalize.css';
+import '@/app/styles/properties.css';
+import '@/app/styles/global.css';
 
 const appContainer = document.querySelector('#app');
 
@@ -15,7 +16,9 @@ if (!appContainer) {
 const root = createRoot(appContainer);
 
 root.render(
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>
+  <BrowserRouter>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </BrowserRouter>
 );
